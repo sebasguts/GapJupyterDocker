@@ -320,5 +320,3 @@ RUN    cd /tmp \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done
 
 RUN sudo pip install jupyter
-
-RUN 
