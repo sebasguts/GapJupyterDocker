@@ -320,3 +320,9 @@ RUN    cd /tmp \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done
 
 RUN sudo pip install jupyter
+
+ENTRYPOINT /bin/bash
+
+# RUN    git clone https://github.com/gap-system/jupyter-gap.git \
+#     && cd jupyter-gap \
+#     && sudo python -m gapkernel_kernel.install \
