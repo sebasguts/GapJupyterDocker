@@ -321,8 +321,6 @@ RUN    cd /tmp \
 
 RUN sudo pip install jupyter
 
-ENTRYPOINT /bin/bash
-
 RUN    cd home/homalg \
     && git clone https://github.com/gap-system/jupyter-gap.git \
     && cd jupyter-gap \
