@@ -331,4 +331,4 @@ RUN    cd home/homalg \
 
 EXPOSE 8888
 
-CMD sudo ipython notebook
+CMD sudo ipython notebook --no-browser
