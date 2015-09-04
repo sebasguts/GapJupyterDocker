@@ -327,7 +327,7 @@ RUN    cd home/homalg \
     && git clone https://github.com/gap-system/jupyter-gap.git \
     && cd jupyter-gap \
     && cd wrapper-kernel \
-    && sudo python -m gapkernel_kernel.install
+    && sudo python -m gap_kernel.install
 
 EXPOSE 8888
 
