@@ -323,6 +323,11 @@ RUN sudo pip install jupyter
 
 ENTRYPOINT /bin/bash
 
-# RUN    git clone https://github.com/gap-system/jupyter-gap.git \
-#     && cd jupyter-gap \
-#     && sudo python -m gapkernel_kernel.install \
+RUN    git clone https://github.com/gap-system/jupyter-gap.git \
+    && cd jupyter-gap \
+    && cd wrapper-kernel \
+    && sudo python -m gapkernel_kernel.install
+
+EXPOSE 8888
+
+CMD ipython notebook
