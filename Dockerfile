@@ -339,8 +339,8 @@ RUN    cd home/homalg \
     && git clone https://github.com/sebasguts/jupyter-singular.git \
     && mkdir jupyterkernels \
     && cd jupyterkernels \
-    && cp -r ../jupyter-gap/wrapper-kernel/* . \
-    && cp -r ../jupyter-singular/wrapper-kernel/* .
+    && mv -r ../jupyter-gap/wrapper-kernel/* . \
+    && mv -r ../jupyter-singular/wrapper-kernel/* .
 
 EXPOSE 8888
 
