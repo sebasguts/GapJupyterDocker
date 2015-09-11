@@ -329,4 +329,4 @@ RUN    cd home/homalg \
 
 EXPOSE 8888
 
-CMD sudo ipython notebook --no-browser
+CMD cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m gap_kernel.install && sudo ipython notebook --no-browser
