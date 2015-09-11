@@ -297,17 +297,14 @@ RUN    cd /tmp \
     && cd /tmp \
     && rm -rf flint2
 
-# Singular
-RUN    cd /opt \
-    && sudo mkdir Singular \
-    && sudo chown -hR homalg Singular \
-    && cd Singular \
-    && git clone https://github.com/Singular/Sources.git \
-    && cd Sources \
-    && ./autogen.sh \
-    && ./configure --with-flint=yes --with-gmp=system \
-    && make -j \
-    && sudo make install
+# Singular from binaries
+RUN    cd /tmp
+    && wget Singular-x86_64-Linux-share.tar.gz \
+    && wget Singular-x86_64-Linux-architecture.tar.gz \
+    && cd /usr/local \
+    && sudo gzip -dc /tmp/Singular-x86_64-Linux-architecture.tar.gz | tar -pxf - \
+    && sudo gzip -dc path-to-your-download-folder/Singular-x86_64-Linux-share.tar.g | tar -pxf - \
+    && rm -rf /tmp/Singular*
 
 RUN    cd /tmp \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_2015_06_09-20_27.tar.gz \
