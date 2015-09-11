@@ -300,7 +300,7 @@ RUN    cd /tmp \
 # Singular
 RUN    cd /opt \
     && sudo mkdir Singular \
-    && sudo chown -hR spp Singular \
+    && sudo chown -hR homalg Singular \
     && cd Singular \
     && git clone https://github.com/Singular/Sources.git \
     && cd Sources \
@@ -328,6 +328,7 @@ RUN    cd /tmp \
     && cd local \
     && mkdir pkg \
     && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' > /usr/bin/gap" \
+    && sudo ln -snf /usr/bin/gap /usr/bin/gap.sh \
     && sudo chmod +x /usr/bin/gap \
     && mkdir /home/homalg/.gap \
     && echo 'SetUserPreference( "UseColorPrompt", true );' > /home/homalg/.gap/gap.ini \
