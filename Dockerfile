@@ -290,8 +290,8 @@ USER homalg
 
 # Singular from binaries
 RUN    cd /tmp \
-    && wget Singular-4-0-2-share.tar.gz \
-    && wget Singular-4-0-2-x86_64-Linux.tar.gz \
+    && wget http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/UNIX/Singular-4-0-1-x86_64-Linux.tar.gz \
+    && wget http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/UNIX/Singular-4-0-2-share.tar.gz \
     && cd /usr/local \
     && sudo gzip -dc /tmp/Singular-4-0-2-x86_64-Linux.tar.gz | tar -pxf - \
     && sudo gzip -dc /tmp/Singular-4-0-2-share.tar.gz | tar -pxf - \
