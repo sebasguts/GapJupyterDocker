@@ -288,22 +288,13 @@ RUN \
 
 USER homalg
 
-RUN    cd /tmp \
-    && git clone https://github.com/wbhart/flint2.git \
-    && cd flint2 \
-    && ./configure \
-    && make -j \
-    && sudo make install \
-    && cd /tmp \
-    && rm -rf flint2
-
 # Singular from binaries
 RUN    cd /tmp \
-    && wget Singular-x86_64-Linux-share.tar.gz \
-    && wget Singular-x86_64-Linux-architecture.tar.gz \
+    && wget Singular-4-0-2-share.tar.gz \
+    && wget Singular-4-0-2-x86_64-Linux.tar.gz \
     && cd /usr/local \
-    && sudo gzip -dc /tmp/Singular-x86_64-Linux-architecture.tar.gz | tar -pxf - \
-    && sudo gzip -dc path-to-your-download-folder/Singular-x86_64-Linux-share.tar.g | tar -pxf - \
+    && sudo gzip -dc /tmp/Singular-4-0-2-x86_64-Linux.tar.gz | tar -pxf - \
+    && sudo gzip -dc /tmp/Singular-4-0-2-share.tar.gz | tar -pxf - \
     && rm -rf /tmp/Singular*
 
 RUN    cd /tmp \
