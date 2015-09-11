@@ -305,7 +305,7 @@ RUN    cd /opt \
     && git clone https://github.com/Singular/Sources.git \
     && cd Sources \
     && ./autogen.sh \
-    && ./configure --enable-gfanlib --with-flint=yes --with-gmp=system \
+    && ./configure --with-flint=yes --with-gmp=system \
     && make -j \
     && sudo make install
 
