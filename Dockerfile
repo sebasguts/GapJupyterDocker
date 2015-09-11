@@ -306,7 +306,8 @@ RUN    cd /opt \
     && cd Sources \
     && ./autogen.sh \
     && ./configure --enable-gfanlib --with-flint=yes --with-gmp=system \
-    && make -j 
+    && make -j \
+    && sudo make install
 
 RUN    cd /tmp \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_2015_06_09-20_27.tar.gz \
