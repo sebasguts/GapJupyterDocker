@@ -293,6 +293,7 @@ RUN    cd /tmp \
     && wget http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/UNIX/Singular-4-0-2-x86_64-Linux.tar.gz \
     && wget http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/UNIX/Singular-4-0-2-share.tar.gz \
     && cd /usr/local \
+    && sudo chmod +w /usr/local \
     && sudo gzip -dc /tmp/Singular-4-0-2-x86_64-Linux.tar.gz | tar -pxf - \
     && sudo gzip -dc /tmp/Singular-4-0-2-share.tar.gz | tar -pxf - \
     && rm -rf /tmp/Singular*
