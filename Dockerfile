@@ -336,7 +336,7 @@ RUN sudo pip install jupyter
 
 RUN    cd home/homalg \
     && git clone https://github.com/gap-system/jupyter-gap.git \
-    && git clone https://github.com/gap-system/jupyter-singular.git 
+    && git clone https://github.com/sebasguts/jupyter-singular.git 
 
 EXPOSE 8888
 
