@@ -340,4 +340,4 @@ RUN    cd home/homalg \
 
 EXPOSE 8888
 
-CMD cd /home/homalg/jupyter-singular/wrapper-kernel && sudo python -m singular_kernel.install &&  cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m gap_kernel.install && sudo ipython notebook --no-browser
+CMD cd /home/homalg/jupyter-singular/wrapper-kernel && sudo python -m singular_kernel.install &&  cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
