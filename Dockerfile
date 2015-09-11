@@ -298,7 +298,7 @@ RUN    cd /tmp \
     && rm -rf flint2
 
 # Singular from binaries
-RUN    cd /tmp
+RUN    cd /tmp \
     && wget Singular-x86_64-Linux-share.tar.gz \
     && wget Singular-x86_64-Linux-architecture.tar.gz \
     && cd /usr/local \
