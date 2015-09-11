@@ -297,7 +297,7 @@ RUN    cd /tmp \
     && cd install_singular \
     && gzip -dc /tmp/Singular-4-0-2-x86_64-Linux.tar.gz | tar -pxf - \
     && gzip -dc /tmp/Singular-4-0-2-share.tar.gz | tar -pxf - \
-    && sudo ln -snf ln -s /home/homalg/install_singular/bin/Singular /usr/local/bin/Singular \
+    && sudo ln -snf /home/homalg/install_singular/bin/Singular /usr/local/bin/Singular \
     && rm -rf /tmp/Singular*
 
 RUN    cd /tmp \
