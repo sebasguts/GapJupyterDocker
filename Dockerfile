@@ -291,7 +291,7 @@ USER homalg
 RUN    cd /tmp \
     && git clone https://github.com/wbhart/flint2.git \
     && cd flint2 \
-    && ./configure --with-gmp=system \
+    && ./configure \
     && make -j \
     && sudo make install \
     && cd /tmp \
