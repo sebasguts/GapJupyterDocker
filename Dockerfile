@@ -289,6 +289,27 @@ RUN \
 USER homalg
 
 RUN    cd /tmp \
+    && git clone https://github.com/wbhart/flint2.git \
+    && cd flint2 \
+    && ./configure --with-gmp=system \
+    && make -j \
+    && sudo make install \
+    && cd /tmp \
+    && rm -rf flint2
+
+# Singular
+RUN    cd /opt \
+    && sudo mkdir Singular \
+    && sudo chown -hR spp Singular \
+    && cd Singular \
+    && git clone https://github.com/Singular/Sources.git \
+    && cd Sources \
+    && ./autogen.sh \
+    && ./configure --enable-gfanlib --with-flint=yes --with-gmp=system \
+    && make -j \
+    && make check \
+
+RUN    cd /tmp \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p8_2015_06_09-20_27.tar.gz \
     && tar -xf gap*tar* \
     && rm -rf gap*tar* \
@@ -323,10 +344,8 @@ RUN sudo pip install jupyter
 
 RUN    cd home/homalg \
     && git clone https://github.com/gap-system/jupyter-gap.git \
-    && cd jupyter-gap \
-    && cd wrapper-kernel \
-    && sudo python -m gap_kernel.install
+    && git clone https://github.com/gap-system/jupyter-singular.git 
 
 EXPOSE 8888
 
-CMD cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m gap_kernel.install && sudo ipython notebook --no-browser
+CMD cd /home/homalg/jupyter-singular/wrapper-kernel && sudo python -m singular_kernel.install &&  cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m gap_kernel.install && sudo ipython notebook --no-browser
