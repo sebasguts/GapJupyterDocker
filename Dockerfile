@@ -336,8 +336,12 @@ RUN sudo pip install jupyter
 
 RUN    cd home/homalg \
     && git clone https://github.com/gap-system/jupyter-gap.git \
-    && git clone https://github.com/sebasguts/jupyter-singular.git 
+    && git clone https://github.com/sebasguts/jupyter-singular.git \
+    && mkdir jupyterkernels \
+    && cd jupyterkernels \
+    && cp -r ../jupyter_gap/wrapper_kernel/* . \
+    && cp -r ../jupyter_singular/wrapper_kernel/* .
 
 EXPOSE 8888
 
-CMD cd /home/homalg/jupyter-singular/wrapper-kernel && sudo python -m singular_kernel.install &&  cd /home/homalg/jupyter-gap/wrapper-kernel && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
+CMD cd /home/homalg/jupyterkernels && sudo python -m singular_kernel.install && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
