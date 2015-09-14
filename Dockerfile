@@ -344,4 +344,4 @@ RUN    cd home/homalg \
 
 EXPOSE 8888
 
-CMD cd /home/homalg/jupyterkernels && sudo python -m singular_kernel.install && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
+CMD cd /home/homalg/jupyterkernels && sudo python -m singular_kernel.install && sudo python setup.py install && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
