@@ -318,7 +318,8 @@ RUN    cd /tmp \
     && mkdir local \
     && cd local \
     && mkdir pkg \
-    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' > /usr/bin/gap" \
+    && sudo bash -c "echo '#!/bin/sh' > /usr/bin/gap" \
+    && sudo bash -c "echo '/opt/gap4r7/bin/gap.sh -l \"/opt/gap4r7/local;/opt/gap4r7\" \"\$@\"' >> /usr/bin/gap" \
     && sudo ln -snf /usr/bin/gap /usr/bin/gap.sh \
     && sudo chmod +x /usr/bin/gap \
     && mkdir /home/homalg/.gap \
