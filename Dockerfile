@@ -339,9 +339,16 @@ RUN    cd home/homalg \
     && git clone https://github.com/sebasguts/jupyter-singular.git \
     && mkdir jupyterkernels \
     && cd jupyterkernels \
-    && mv ../jupyter-gap/wrapper-kernel/* . \
-    && mv ../jupyter-singular/wrapper-kernel/* .
+    && mv ../jupyter-gap/wrapper-kernel gap-wrapper-kernel \
+    && mv ../jupyter-singular/wrapper-kernel singular-wrapper-kernel \
+    && rm -rf /home/homalg/jupyter-gap \
+    && rm -rf /home/homalg/jupyter-singular
 
 EXPOSE 8888
 
-CMD cd /home/homalg/jupyterkernels && sudo python -m singular_kernel.install && sudo python setup.py install && sudo python -m jupyter_gap_wrapper.install && sudo ipython notebook --no-browser
+CMD    cd /home/homalg/jupyterkernels/gap-wrapper-kernel \
+    && sudo python setup.py install \
+    && sudo python -m jupyter_gap_wrapper.install \
+    && cd /home/homalg/jupyterkernels/singular-wrapper-kernel \
+    && sudo python -m singular_kernel.install \
+    && sudo ipython notebook --no-browser
