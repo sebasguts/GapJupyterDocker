@@ -328,12 +328,10 @@ RUN    cd /tmp \
     && echo 'SetUserPreference( "HistoryMaxLines", 10000 );' >> /home/homalg/.gap/gap.ini \
     && echo 'SetUserPreference( "SaveAndRestoreHistory", true );' >> /home/homalg/.gap/gap.ini \
     && cd /opt/gap4r7/local/pkg \
-    && export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules \
+    && export homalg_modules="AlgebraicThomas AbelianSystems alexander AutoDoc Blocks Conley D-Modules CAP_project \
                               k-Points LessGenerators LetterPlace SCO SCSCP_ForHomalg Sheaves SimplicialObjects \
                               SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition SingularForHomalg homalg_project" \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done
-
-RUN git clone https://github.com/homalg-project/CAP_project.git
 
 RUN sudo pip install jupyter
 
