@@ -333,6 +333,8 @@ RUN    cd /tmp \
                               SystemTheory VirtualCAS CombinatoricsForHomalg CAP PrimaryDecomposition SingularForHomalg homalg_project" \
     && for i in $homalg_modules; do git clone https://github.com/homalg-project/${i}.git; done
 
+RUN git clone https://github.com/homalg-project/CAP_project.git
+
 RUN sudo pip install jupyter
 
 RUN    cd home/homalg \
